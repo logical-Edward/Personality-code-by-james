@@ -9,12 +9,12 @@ To help fix the *tons of bugs* currently or give suggestions, use the Issues sec
 
 New users given [collaborator](https://help.github.com/articles/permission-levels-for-a-user-account-repository/)
 access: it's quite simple to get started \- you can upload your file(s)  
-or create a new one, with the Github text editor. If you need to edit some code after adding it to this project  
+or create a new one, with the Github text editor. If you need to edit some code after adding it to this  
 repository, just find the file, click the edit button and paste a new version into the editor or change it there.
 
-Describing your changes is a good idea, helping people understand what you changed.  
-The version control system managing these edits (the Github website uses one under its Graphical  
-User Interface) will store this information - also including who did the edit and when it happened.
+Describing your changes is a good idea that helps people understand what you changed \- the  
+version control system managing these edits (used by Github under its Graphical User Interface)  
+will store this information - also including who did the edit and when it happened.
 
 You can fork this repository to create a separate version.  
 Learn more about Github on their help pages and for detailed information  
