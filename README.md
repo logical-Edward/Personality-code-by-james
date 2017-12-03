@@ -21,11 +21,11 @@ The first time you create/upload your file(s), they get added to a special copy 
 
 Also, a pull request is automatically created for you - this is a place to [suggest changes](https://help.github.com/articles/proposing-changes-to-your-work-with-pull-requests/) and review them  
 with other people. All the things you changed (adding/deleting content) can be seen here, shown with a file  
-comparison tool called a diff. This helps the repository owner / collaborators to check your work, discuss any  
+comparison tool called a diff. This helps the repository owner / collaborators to check your work, discuss any  
 problems, add their own edits then merge the changes (adding them to the main/master branch).
 
   
 You can fork this repository to create a separate version, on your user account.  
-Learn more about Github on their help pages (to understand keywords, the [glossary page](https://help.github.com/articles/github-glossary/)  
-has explanations) and detailed information about version control can be found in  
-the Wikipedia article <https://en.wikipedia.org/wiki/Version_control>.
+Learn more about Github on their help pages (to understand keywords, the [glossary page](https://help.github.com/articles/github-glossary/) has explanations)  
+and detailed information about version control can be found in an article  
+on Wikipedia, <https://en.wikipedia.org/wiki/Version_control>.
