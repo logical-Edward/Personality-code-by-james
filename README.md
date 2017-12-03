@@ -16,6 +16,16 @@ Describing your changes is a good idea that helps people understand what you cha
 version control system managing these edits (used by Github under its Graphical User Interface)  
 will store this information - also including who did the edit and when it happened.
 
-You can fork this repository to create a separate version.  
-Learn more about Github on their help pages and for detailed information  
-about version control, see <https://en.wikipedia.org/wiki/Version_control>.
+The first time you create/upload your file(s), they get added to a special copy of the main repository  
+(a new [branch](https://help.github.com/articles/about-branches/)) where new ideas can be safely tested without changing the original files (master branch).
+
+Also, a pull request is automatically created for you - this is a place to [suggest changes](https://help.github.com/articles/proposing-changes-to-your-work-with-pull-requests/) and review them  
+with other people. All the things you changed (adding/deleting content) can be seen here (shown with a file  
+comparison tool called a diff), allowing the repository owner/collaborators to check your work, discuss any  
+problems, add their own edits then merge the changes (add them to the main/master branch).
+
+  
+You can fork this repository to create a separate version, on your user account.  
+Learn more about Github on their help pages (there's a [glossary page](https://help.github.com/articles/github-glossary/) that  
+explains many keywords) and for detailed information about version control,  
+see the Wikipedia article <https://en.wikipedia.org/wiki/Version_control>.
