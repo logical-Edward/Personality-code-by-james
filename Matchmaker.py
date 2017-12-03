@@ -1,10 +1,15 @@
-﻿print("Welcome to the people matcher, this program intends to match people with their ideal partner. Though a pinch of salt may be required.")
-print("This program will ask you questions about yourself. Finally making suggestions as to the type of person that you would most likely be interested in")
+# All the individual boolean variables at the start have been moved to key:value pairs in a dictionary.
+you = {"perception":50, "understanding":False, "pacient":False, "impacient":False, "cant_relate":False,
+       "picky_friend":False, "gulible":False, "crowd_follower":False, "gulible":False, "haphazrd":False,
+       "drone":False, "stable":False, "haphazard":False, "unstable":False, "emotionless":False, "loyal":False,
+       "reliable":False, "cool_one":False, "hurtful":False, "caringness":False, "privacy":False, "robot":False,
+       "no_morals":False, "regret":False, "outburst":False, "light_humor":False, "dark_humor":False,
+       "sense_of_humor":False, "no_humor":False, "dark":False, "hurtful_humor":False, "haphazard_hero":False,
+       "emotional_struggle":False}
+# Help with dictionary variables: https://docs.python.org/3.5/tutorial/datastructures.html#dictionaries
+# you["robot"] = value
 
 perception=50
-
-
-
 
 understanding=False
 pacient=False
@@ -39,57 +44,68 @@ hurtful_humor=False
 haphazard_hero=False
 emotional_struggle=False
 
-print("On a scale of 0 (introverted) to 100 (extroverted) were would you rank yourself?")
+#=== Start of main program - after module import, function creating and option variables. ===
+
+print("On a scale of 0 (introverted) to 100 (extroverted) where would you rank yourself?")
 introversion=input()
-print("Given the choice I would rather"+"\n"+"1.Meet lots of people and try to have them all as my freinds."+"\n"+"2.Meet lots of people and have only the best as my friends."+"\n"+"3.Meet few people and have a few freinds"+"\n"+"4.Rather go without meeting people or freinds")
+print("Given the choice, how many people would you meet and have as your friends?\n"+
+      " (1) I would go for lots of people and try all of them.\n"+
+      " (2) I would go for lots of people and have only the best as friends.\n"+
+      " (3) I would go for few people and have a few friends.\n"+
+      " (4) Rather go without meeting people or friends.")
 depth=input()
-if depth=="1":
+if depth == "1":
     depth=33
-elif depth=="2":
+elif depth == "2":
     depth=66
-elif depth=="3":
+elif depth == "3":
     depth=99
-elif depth=="4":
+elif depth == "4":
     depth=0
-print("How good would you say your freinds are to you? 100=terrible, 1=Wonderful")
+    
+print("How good would you say your friends are to you? 100=terrible, 1=Wonderful")
+# Inverse scale used to normal expectations of "how good". 1=worst, 100=best
 tolerance=int(input())
 depth=depth+(50-tolerance)/2
-print("Are you a messy person Y/N ?")
+print("Are you a messy person? (Y/N)")
 mess=input()
-if mess=="Y":
+if mess == "Y":
     organisation=25
-    print("Do you mind others' cleanliness? Y/N")
+    print("Do you mind others' who are untidy? (Y/N)")
     spicy=input()
-    if spicy=="Y":
+    if spicy == "Y":
         tolerance-10
-    elif spicy=="N":
+    elif spicy == "N":
         tolerance+10
 elif mess=="N":
     organisation=75
-    print("Do you mind others' messiness? Y/N")
+    print("Do you mind others' messiness/not being organised? (Y/N)")
     spicy=input()
-    if spicy=="Y":
+    if spicy == "Y":
         tolerance-10
-    elif spicy=="N":
+    elif spicy == "N":
         tolerance+10
-print("How much do you care about others' affairs? 1=little 100=lots")
+
+print("How much do you care about others' affairs? (1=little, 100=lots)")
 caringness=int(input())
-print("How much do you care about your freinds emotions 1=little 100=lots")
+print("How much do you care about the emotions of your friends? (1=little, 100=lots)")
 caringness=(caringness+int(input()))/2
-print("Your freind is sad which one are you?")
-print("1.You do not ask them about their issues, they can deal with them")
-print("2.You mind out of their way wondering what is wrong")
-print("3.Already know what is wrong based on the way they are acting")
-print("4.Ask them what is wrong")
+
+print("When a friend is sad, which action do you take?")
+print(" (1) I don't ask them about their issues - they can deal with it.")
+print(" (2) I stay out of their way, wondering what is wrong.")
+print(" (3) I already know the problem, based on the the way they act.")
+print(" (4) Ask them what is wrong.")
 response=input()
-if response=="1":
+if response == "1":
     caringness=caringness/2
-elif response=="2":
+elif response == "2":
     tolerance=tolerance/2
-elif response=="3":
+elif response == "3":
     perception+25
-elif response=="4":
+elif response == "4":
     caringness=caringness+(100-caringness)/2
+
 print("How well do you get on with your teachers? 1==Terribly 100=Brilliantly")
 respect=int(input())
 tolerance=tolerance-50+respect
