@@ -27,5 +27,4 @@ problems, add their own edits then merge the changes (adding them to the main/ma
   
 You can fork this repository to create a separate version, on your user account.  
 Learn more about Github on their help pages (to understand keywords, the [glossary page](https://help.github.com/articles/github-glossary/) has explanations)  
-and detailed information about version control can be found in an article  
-on Wikipedia, <https://en.wikipedia.org/wiki/Version_control>.
+and detailed information about version control can be found in an [article](https://en.wikipedia.org/wiki/Version_control) on Wikipedia.
