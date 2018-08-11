@@ -1,4 +1,4 @@
-# personality-code-by-james
+# Personality code by James
 A shared place for the Python code of a personality and relationships  
 program made (the original idea) by a secondary school friend, James G.
 
