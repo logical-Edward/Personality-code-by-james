@@ -1,50 +1,75 @@
-# All the individual boolean variables at the start have been moved to key:value pairs in a dictionary.
-you = {"perception":50, "understanding":False, "pacient":False, "impacient":False, "cant_relate":False,
-       "picky_friend":False, "gulible":False, "crowd_follower":False, "gulible":False, "haphazrd":False,
-       "drone":False, "stable":False, "haphazard":False, "unstable":False, "emotionless":False, "loyal":False,
-       "reliable":False, "cool_one":False, "hurtful":False, "caringness":False, "privacy":False, "robot":False,
-       "no_morals":False, "regret":False, "outburst":False, "light_humor":False, "dark_humor":False,
-       "sense_of_humor":False, "no_humor":False, "dark":False, "hurtful_humor":False, "haphazard_hero":False,
-       "emotional_struggle":False}
+# All the boolean variables at the start have been
+# moved to key:value pairs in this dictionary.
+you = {"perception":50, "understanding":False, "pacient":False, "impacient":False,
+    "cannot_relate":False, "picky_friend":False, "gulible":False, "crowd_follower":False,
+    "drone":False, "stable":False, "haphazard":False, "unstable":False, "emotionless":False,
+    "loyal":False, "reliable":False, "cool_one":False, "hurtful":False, "caringness":False,
+    "privacy":False, "robot":False, "no_morals":False, "regret":False, "outburst":False,
+    "light_humor":False, "dark_humor":False, "sense_of_humor":False, "no_humor":False,
+    "dark":False, "hurtful_humor":False, "haphazard_hero":False, "emotional_struggle":False}
 # Help with dictionary variables: https://docs.python.org/3.5/tutorial/datastructures.html#dictionaries
 # you["robot"] = value
 
-perception=50
+def ask_question(text, type="scale", options=["little", "lots"]):
+    """Ask question - shows a (multiple choice) question and returns the answer.
+    
+    - type: "scale" = range of values for a scale / rank, 1 to 100
+    - type: "bool" = Yes / No question, Boolean true / false value
+    - type: "choose" = select an option from numbered statements (e.g. actions taken)
+    - options (list items): the descriptions for "choose" statement options,
+    which go after a number), or text for the start and end points of the range
+    in type: "scale" - e.g. to show the question "...? (1=little, 100=lots)".
+    """
+    pass #...[remove this line after adding the function code here]...
 
+#==== Old code ====#
+perception=50
 understanding=False
 pacient=False
 impacient=False
+
 cant_relate=False
 picky_friend=False
 gulible=False
 crowd_follower=False
-gulible=False
-haphazrd=False
+#gulible=False
+
+#haphazrd=False
 drone=False
 stable=False
 haphazard=False
 unstable=False
 emotionless=False
+
 loyal=False
 reliable=False
 cool_one=False
 hurtful=False
 caringness=False
+
 privacy=False
 robot=False
 no_morals=False
 regret=False
 outburst=False
+
 light_humor=False
 dark_humor=False
 sense_of_humor=False
 no_humor=False
+
 dark=False
 hurtful_humor=False
 haphazard_hero=False
 emotional_struggle=False
+#==================#
 
-#=== Start of main program - after module import, function creating and option variables. ===
+#=== Start of main program ===#
+
+print("Welcome to the people matcher, this program intends to match people\n"+
+    "with their ideal partner. Though a pinch of salt may be required.")
+print("This program will ask you questions about yourself. Finally making\n"+
+    "suggestions as to the type of person that you would most likely be interested in")
 
 print("On a scale of 0 (introverted) to 100 (extroverted) where would you rank yourself?")
 introversion=input()
