@@ -10,15 +10,15 @@ you = {"perception":50, "understanding":False, "pacient":False, "impacient":Fals
 # Help with dictionary variables: https://docs.python.org/3.5/tutorial/datastructures.html#dictionaries
 # you["robot"] = value
 
-def ask_question(text, type="scale", options=["little", "lots"]):
+def ask_question(text, q_type="scale", options=["little", "lots"]):
     """Ask question - shows a (multiple choice) question and returns the answer.
     
-    - type: "scale" = range of values for a scale / rank, 1 to 100
-    - type: "bool" = Yes / No question, Boolean true / false value
-    - type: "choose" = select an option from numbered statements (e.g. actions taken)
+    - q_type: "scale" = range of values for a scale / rank, 1 to 100
+    - q_type: "bool" = Yes / No question, Boolean true / false value
+    - q_type: "choose" = select an option from numbered statements (e.g. actions taken)
     - options (list items): the descriptions for "choose" statement options,
     which go after a number), or text for the start and end points of the range
-    in type: "scale" - e.g. to show the question "...? (1=little, 100=lots)".
+    in q_type: "scale" - e.g. to show the question "...? (1=little, 100=lots)".
     """
     pass #...[remove this line after adding the function code here]...
 
@@ -119,7 +119,7 @@ caringness=(caringness+int(input()))/2
 print("When a friend is sad, which action do you take?")
 print(" (1) I don't ask them about their issues - they can deal with it.")
 print(" (2) I stay out of their way, wondering what is wrong.")
-print(" (3) I already know the problem, based on the the way they act.")
+print(" (3) I already know the problem, based on the way they are acting.")
 print(" (4) Ask them what is wrong.")
 response=input()
 if response == "1":
@@ -131,155 +131,150 @@ elif response == "3":
 elif response == "4":
     caringness=caringness+(100-caringness)/2
 
-print("How well do you get on with your teachers? 1==Terribly 100=Brilliantly")
+print("How well do you get on with your teachers? (1=terribly, 100=brilliantly)")
 respect=int(input())
-tolerance=tolerance-50+respect
-print("Do you post you opinions on soical media? Y/N")
+tolerance=(tolerance-50)+respect
+print("Do you post your opinions on social media? (Y/N)")
 media=input()
-if media=="Y":
+if media == "Y":
     depth=depth/2
-elif media=="N":
+elif media == "N":
     depth=depth+(100-depth)/2
-print("Do you swear? Y/N")
+print("Do you swear? (Y/N)")
 swear=input()
-if swear=="Y":
+if swear == "Y":
     respect=respect/2
-elif swear=="N":
+elif swear == "N":
     respect=respect+(100-respect)/2
-print("Do you notice when others are sad or not themeselves often? Y/N")
+
+print("Do you often notice when others are sad or not themselves? (Y/N)")
 insightful=input()
-if insightful=="Y":
+if insightful == "Y":
     perception=perception+(100-perception)/2
-    print("Do you wonder why they are like that? Y/N")
+    print("Do you wonder why they are like that? (Y/N)")
     longing=input()
-    if longing=="Y":
+    if longing == "Y":
         caringness=caringness+(100-caringness)/2
-    elif longing=="N":
+    elif longing == "N":
         caringness-caringness/2
-elif insightful=="N":
+elif insightful == "N":
     perception=perception/2
-    print("Do you want to be able to be able to tell? Y/N")
+    print("Do you want to be able to tell? (Y/N)")
     longing=input()
-    if longing=="Y":
+    if longing == "Y":
         caringness=caringness+(100-caringness)/2
-    elif longing=="N":
+    elif longing == "N":
         caringness=caringness/2
-print("Do you often get into trouble for not having done things? Y/N")
+print("Do you often get into trouble for having not done things? (Y/N)")
 plan=input()
-if plan=="Y":
+if plan == "Y":
     organisation=organisation/2
-elif plan=="N":
+elif plan == "N":
     orgainisation=organisation+(100-organisation)/2
-print("You understand how you feel and why you feel the way you do. 1=Not at all  100=Completely")
+
+print("You understand how you feel and why you feel the way you do? (1=not at all, 100=completely)")
 self_understanding=int(input())
-print("You often reflect on things that have happened in the day and on your feelings before going to sleep at night? Y/N")
+print("You often reflect on things that have happened in the day\n"+
+    "and on your feelings before going to sleep at night? (Y/N)")
 response=input()
-if response=="Y":
+if response == "Y":
     self_understanding=self_understanding+(100-self_understanding)/2
-elif response=="N":
+elif response == "N":
     self_understanding=self_understanding/2
-print("Do you talk to others about how you are feeling? Y/N")
+print("Do you talk to others about how you are feeling? (Y/N)")
 response=input()
-if response=="Y":
+if response == "Y":
     privacy=False
     self_understanding=self_understanding+(100-self_understanding)/2
-elif response=="N":
+elif response == "N":
     privacy=True
     self_understanding=self_understanding/2
-print("Do you ever suddenly consider that you could've hurt someones feelings and feel slighltly ashamed? Y/N")
+print("Do you ever suddenly consider that you could've hurt\n"+
+    "someone's feelings and feel slightly ashamed? (Y/N)")
 regret=input()
-if regret=="Y":
+if regret == "Y":
     regret=True
     perception=perception+(100-perception)/2
     caringness=caringness+(100-caringness)/2
-elif regret=="N":
+elif regret == "N":
     regret=False
     perception=perception/2
     caringness=caringness/2
-print("Do you suffer from emotional outbursts? Y/N")
-responce=input()
-if responce=="Y":
+print("Do you suffer from emotional outbursts? (Y/N)")
+response=input()
+if response == "Y":
     tolerance=tolerance/2
     self_understanding=self_understanding/2
     
-elif responce=="N":
+elif response == "N":
     tolerance=tolerance+(100-tolerance)/2
     self_understanding=self_understanding+(100-self_understanding)/2
-print("How effective are your jokes, according to you? 1=Terrible 100=Perfect")
+
+print("How effective are your jokes, according to you? (1=terrible, 100=perfect)")
 humor=int(input())
 print("A friend cracks a bit of tasteful, but hurtful banter to one of your other friends, what do you do?")
 print("1.Laugh, you just can't help it, it is too damn funny.")
 print("2.Laugh internally, since your not quite sure how the recipent feels about it.")
 print("3.You usually don't get the joke till the moment has passed.")
 print("4.You don't really find hurtful jokes funny.")
-responce=input()
-if responce=="1":
+response=input()
+if response == "1":
     humor=humor+(100-humor)/2
     caringness=caringness/2
-elif responce=="2":
+elif response == "2":
     humor=humor+(100-humor)/2
     caringness=caringness+(100-caringness)/2
-elif responce=="3":
+elif response == "3":
     humor=humor/2
-elif responce=="4":
+elif response == "4":
     caringness=caringness+(100-caringness)/2
-print("I often tell jokes. Y/N")
+print("I often tell jokes. (Y/N)")
 responce=input()
-if responce=="Y":
+if responce == "Y":
     humor=humor+(100-humor)/2
-    print(" But I don't take part in the slightly hurtful banter so that I don't hurt peoples' feelings? Y/N")
-    responce=input()
-    if responce=="Y":
-        caringness=caringness+(100-caringness)/2
-    elif responce=="N":
-        caringness=caringness/2
-elif responce=="N":
+elif responce == "N":
     humor=humor/2
-    print("I don't take part in the slightly hurtful banter so that I don't hurt peoples' feelings? Y/N")
-    responce=input()
-    if responce=="Y":
-        caringness=caringness+(100-caringness)/2
-    elif responce=="N":
-        caringness=caringness/2
-print("How do you like your humor? 1=Dark 100=Lighthearted")
+print("But I don't take part in the slightly hurtful banter\n"+
+    "so that I don't hurt peoples' feelings? (Y/N)")
+responce=input()
+if responce == "Y":
+    caringness=caringness+(100-caringness)/2
+elif responce == "N":
+    caringness=caringness/2
+print("How do you like your humor? (1=Dark, 100=Lighthearted)")
 darkness=int(input())
-print("Are you sarcasitc often? Y/N")
+print("Are you sarcasitc often? (Y/N)")
 responce=input()
-if responce=="Y":
+if responce == "Y":
     darkness=darkness+(darkness-100)/2
     humor=humor+(100-humor)/2
-elif responce=="N":
+elif responce == "N":
     humor=humor/2
     darkness=darkness/2
-print("Do you know what it is that you would like to do, for employment when you leave school? Y/N")
+
+print("Do you know what it is that you would like to do,\n"+
+    "for employment when you leave school? (Y/N)")
 responce=input()
-if responce=="Y":
+if responce == "Y":
     self_understanding=self_understanding+(100-self_understanding)/2
-elif responce=="N":
+elif responce == "N":
     self_understanding=self_understanding/2
-print("Do you know what your best friend wants to do when they leave school? Y/N")
+print("Do you know what your best friend wants to do when they leave school? (Y/N)")
 responce=input()
-if responce=="Y":
+if responce == "Y":
     depth=depth+(100-depth)/2
-elif responce=="N":
+elif responce == "N":
     depth=depth/2
-print("Do your friends talk to you about how they feel? Y/N")
+print("Do your friends talk to you about how they feel? (Y/N)")
 responce=input()
-if responce=="Y":
+if responce == "Y":
     depth=depth+(100-depth)/2
-elif responce=="N":
+elif responce == "N":
     depth=depth/2
-    
 
-
-        
-        
-    
-    
 
 print(depth,tolerance,caringness,respect,perception,organisation,self_understanding,humor)
 print("Depth,tolerance,caringness,respect,perception,organisation,self understanding,humor")
-
 
 print("--------------------------------------")
 print("--------------------------------------")
@@ -318,7 +313,6 @@ elif humor>50 and darkness<50:
     light_humor=True
 elif humor<50 and darkness<50:
     no_humor=True
-
 
 if pacient==True and robot==True:
     emotionless=True
@@ -362,8 +356,8 @@ if light_humor==True or dark_humor==True:
 if caringness>50:
     caringness=True
 
-print("Your understanding and way you feel about people is best described as this...")
 
+print("Your understanding and way you feel about people is best described as this...")
 
 if understanding==True:
     print("You understand people and because of this you are very patient with people that you know have reasons to act the way that they should.")
@@ -385,6 +379,7 @@ elif crowd_follower==True:
     print("When it comes to friends you are somewhat in the middle, you like having friends around due to the social status, but also aren't just friends with anyone. You do have boundaries and people that you wouldn't befriend despite the popularity you may gain. You can also usually tell who the bad ones are.")
 elif drone==True:
     print("When it comes to friends you prefer the social status of the people themselves, you’re not too picky and will happily befriend an irritating person (well one that’s not too bad) as long as you are able to gain something from them such as status.")
+
 print()
 print("Your general attitude is best described as this")
 
@@ -399,8 +394,7 @@ elif unstable==True:
 
 print()
 print()
-
-print ("Overall however this is the sort of personality you behold")
+print("Overall, however, this is the sort of personality you behold")
     
 if emotionless==True:
     print("You have trouble understanding emotions sometimes. You can't read people too well sometimes supirsed by peoples cruelness, but you struggle to understand yourself even more so. You might find some calm in trying to understand others' emotions or the world around you. To others' you seem perhaps withdrawn sometimes, but in reality you are just trying to understand things sometimes the people around you and sometimes yourself. Nevertheless you try not to get angry with people, you don't always understand them, but you usualy don't snap. Usually...")
@@ -445,27 +439,12 @@ if hurtful==True and regret==True and outburst==False:
 if hurtful==True and regret==True and outburst==True:
     print("You really hurt people sometimes your tendency to lose your temper along with the fact that you don't always know what exactly it is that you have said to cause upset is sometimes to you the most upsetting thing of all. You try not to upset people, but find that you sometimes do, you can't help it and that's what hurts the most.")
 
-
-
 print()
 if caringness==True:
     print("In addition to or perhaps contrasting your overall personality")
-    print("You are sympathic even empathetic at times, other peoples pain really gets to you. You want to help people with their problems and it infuriates you when you can’t")
+    print("You are sympathic even empathetic at times, other peoples' pain really gets to you. You want to help people with their problems and it infuriates you when you can’t")
 if privacy==True:
     print("In addition to or perhaps contrasting your overall personality you are also...")
     print("Quite a secretive person, you keep things from others, somethings even from your friends. Not always out of spite simply because you don’t quite trust everyone with your deepest darkest secrets.")
-    
-    
-
-
-
-
-
 
 input()
-
-
-
-
-    
-
