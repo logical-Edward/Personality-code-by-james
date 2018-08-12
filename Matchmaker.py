@@ -241,9 +241,9 @@ if responce == "Y":
     caringness=caringness+(100-caringness)/2
 elif responce == "N":
     caringness=caringness/2
-print("How do you like your humor? (1=Dark, 100=Lighthearted)")
+print("How do you like your humor? (1=dark, 100=light-hearted)")
 darkness=int(input())
-print("Are you sarcasitc often? (Y/N)")
+print("Are you sarcastic often? (Y/N)")
 responce=input()
 if responce == "Y":
     darkness=darkness+(darkness-100)/2
