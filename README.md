@@ -8,7 +8,7 @@ program made (the original idea) by a secondary school friend, James G.
 
 To help fix the *"tons of bugs"* currently or give suggestions, use the Issues section.  
 
-## New users introduction *(Github v.c. system)*
+## New users introduction *(to the Github v.c. system)*
 
 New users, it's simple to get started - you can:
  - upload file(s) to this repository
