@@ -10,10 +10,15 @@ To help fix the *"tons of bugs"* currently or give suggestions, use the Issues s
 
 ## New users introduction *(Github v.c. system)*
 
-New users given [collaborator](https://help.github.com/articles/permission-levels-for-a-user-account-repository/)
-access: it's simple to get started \- you can upload your file(s) or create  
-a new one, with the Github text editor. If you need to edit some code after adding it to this repository,  
-find the file, then click the edit button and paste a new version into the editor or change it there.
+New users, it's simple to get started - you can:
+ - upload file(s) to this repository
+ - create a new one, with the Github text editor
+ - edit a file - click the edit button and change some  
+   code in the editor or paste a new version there.
+
+If you haven't been given [collaborator](https://help.github.com/articles/permission-levels-for-a-user-account-repository/)
+access, you need to  
+*create a new branch for your commit(s) and start a pull request*.
 
 Describing your changes is a good idea that helps people understand what you changed \- the  
 version control system managing these edits (used by Github under its Graphical User Interface)  
@@ -26,7 +31,6 @@ Also, a pull request is automatically created for you - this is a place to [sugg
 with other people. All the things you changed (adding/deleting text) can be seen here, shown with a file  
 comparison tool called a diff. This helps the repository owner / collaborators to check your work, discuss  
 any problems, add their own edits then merge the changes (adding them to the main "master" branch).
-
   
 You can fork this repository to create another version, on your user account.  
 Learn more about Github on their help pages (to understand keywords, the [glossary page](https://help.github.com/articles/github-glossary/) has  
