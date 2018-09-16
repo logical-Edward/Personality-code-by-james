@@ -6,15 +6,15 @@ program made (the original idea) by a secondary school friend, James G.
 > If you would like to try it, then let me know and please don't be offended by it because it's still quite new.  
 > Feedback would be appreciated, thanks.
 
-To help fix the *"tons of bugs"* currently or give suggestions, use the Issues section.  
-
-## New users introduction *(to the Github v.c. system)*
+## New users introduction *(to Github and its v.c. system)*
 
 New users, it's simple to get started - you can:
  - upload file(s) to this repository
  - create a new one, with the Github text editor
  - edit a file - click the edit button and change some  
-   code in the editor or paste a new version there.
+   code in the editor or paste a new version there
+ - give suggestions or help with fixing bugs in  
+ the Issues area (a tab at the top of this page).
 
 If you haven't been given [collaborator](https://help.github.com/articles/permission-levels-for-a-user-account-repository/)
 access, you need to  
