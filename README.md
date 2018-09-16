@@ -9,9 +9,9 @@ program made (the original idea) by a secondary school friend, James G.
 ## New users introduction *(to Github and its v.c. system)*
 
 New users, it's simple to get started - you can:
- - edit a file in this repository - click the edit button and  
- change some code in the editor or paste a new version there
- - upload file(s) or create a new one, with the Github text editor
+ - edit a file in this repository - click the edit button and change  
+ some code in the Github text editor or paste a new version there
+ - upload file(s) or create a new one, using the editor
  - give suggestions or help with fixing bugs in  
  the Issues area (a tab at the top of this page).
 
