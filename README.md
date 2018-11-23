@@ -23,8 +23,8 @@ Describing your changes is a good idea that helps people understand what you cha
 version control system managing these edits (used by Github under its Graphical User Interface)  
 saves this information - also including who did the edit and when it was done.
 
-The first time you create/upload your file(s), they get added to a special copy of the main repository  
-(a new [branch](https://help.github.com/articles/about-branches/)) where "new ideas can be safely tested" without changing the original files (master branch).
+The first time you create/upload your file(s), they get added to a special copy (fork) of the main repository, in  
+a new [branch](https://help.github.com/articles/about-branches/), where "new ideas can be safely tested" without changing the original files (master branch).
 
 Also, a pull request is automatically created for you - this is a place to [suggest changes](https://help.github.com/articles/proposing-changes-to-your-work-with-pull-requests/) and review them  
 with other people. All the things you changed (adding/deleting text) can be seen here, shown with a file  
