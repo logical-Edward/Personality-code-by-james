@@ -1,37 +1,76 @@
+#==== Python line length to wrap text for easier reading is 79 characters. ====
 
 def ask_question(text, q_type="scale", options=["little", "lots"]):
-    """Ask question - shows a (multiple choice) question and returns the answer.
+    """Ask [a] question - shows a multiple choice question\
+ and returns the answer.
     
     - q_type: "scale" = range of values for a scale / rank, 1 to 100
     - q_type: "bool" = Yes / No question, Boolean true / false value
-    - q_type: "choose" = select an option from numbered statements (e.g. actions taken)
+    - q_type: "choose" = select an option from numbered statements
+    (e.g. actions taken)
     - options (list items): the descriptions for "choose" statement options,
-    which go after a number), or text for the start and end points of the range
-    in q_type: "scale" - e.g. to show the question "...? (1=little, 100=lots)".
+    which go after a number, or text for the start and end points of the range
+    in q_type: "scale" - e.g. to show a question "...? (1=little, 100=lots)".
     """
-    pass #...[remove this line after adding the function code here]...
+    global question_no
+    question_no += 1
+    answer = None
+    while answer == None:
+        print("[q."+str(question_no)+"] "+text+"?", end={True:" ",
+            False:"\n"}[q_type in ["scale", "bool"]])
+
+        if q_type == "scale":
+            print("(1={0}, 100={1})".format(options[0], options[1]))
+            answer = input()
+            try:
+                answer = int(answer)
+                if answer not in range(1, 100+1):
+                    answer = None
+            except ValueError:
+                answer = None
+        elif q_type == "bool":
+            #...
+            answer = input()
+            #...
+        elif q_type == "choose":
+            #...
+            answer = input()
+            #...
+    return answer
+    #pass #...[remove this line after adding the function code here]...
 
 # All the boolean variables that were here have been moved to key:value pairs
 # in this dictionary and use of them updated to this using find and replace.
 # Spelling and grammar errors have been corrected in Grammarly editor.
-you = {"perception":50, "understanding":False, "patient":False, "impatient":False,
-    "cannot_relate":False, "picky_friend":False, "gullible":False, "crowd_follower":False,
-    "drone":False, "stable":False, "haphazard":False, "unstable":False, "emotionless":False,
-    "loyal":False, "reliable":False, "cool_one":False, "hurtful":False, "caringness":False,
-    "privacy":False, "robot":False, "no_morals":False, "regret":False, "outburst":False,
-    "light_humor":False, "dark_humor":False, "sense_of_humor":False, "no_humor":False,
-    "dark":False, "hurtful_humor":False, "haphazard_hero":False, "emotional_struggle":False}
-# Help with dictionary variables: https://docs.python.org/3.5/tutorial/datastructures.html#dictionaries
+you = {"perception":50, "understanding":False, "patient":False,
+    "impatient":False, "cannot_relate":False, "picky_friend":False,
+    "gullible":False, "crowd_follower":False, "drone":False, "stable":False,
+    "haphazard":False, "unstable":False, "emotionless":False, "loyal":False,
+    "reliable":False, "cool_one":False, "hurtful":False, "caringness":False,
+    "privacy":False, "robot":False, "no_morals":False, "regret":False,
+    "outburst":False, "light_humor":False, "dark_humor":False,
+    "sense_of_humor":False, "no_humor":False, "dark":False,
+    "hurtful_humor":False, "haphazard_hero":False, "emotional_struggle":False}
+# Help with dictionary variables:
+# https://docs.python.org/3.5/tutorial/datastructures.html#dictionaries
+
+question_no = 0
+# "global" (scopes and namespaces) info:
+# https://docs.python.org/3.5/tutorial/classes.html#scopes-and-namespaces-example
 
 #=== Start of main program ===#
 
 print("Welcome to the people matcher, this program intends to match people\n"+
     "with their ideal partner. Though a pinch of salt may be required.")
-print("This program will ask you questions about yourself. Finally making "+
-    "suggestions as to the type of person that you would most likely be interested in")
+print("This program will ask you questions about yourself.\n"+
+      "Finally making suggestions as to the type of person "+
+      "that you would most likely be interested in.")
+print()
 
-print("On a scale of 0 (introverted) to 100 (extroverted) where would you rank yourself?")
-introversion=input()
+introversion = ask_question("On an introvert/extrovert scale, where would "+
+    "you rank yourself", q_type="scale", options=["introverted",
+                                                  "extroverted"])
+
 print("Given the choice, how many people would you meet and have as your friends?\n"+
       " (1) I would go for lots of people and try all of them.\n"+
       " (2) I would go for lots of people and have only the best as friends.\n"+
