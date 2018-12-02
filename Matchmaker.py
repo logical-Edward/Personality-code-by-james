@@ -1,12 +1,13 @@
 #==== Python line length to wrap text for easier reading is 79 characters. ====
+# License + info at <https://github.com/user-e/personality-code-by-james/>
 
 def ask_question(text, q_type="scale", options=["little", "lots"]):
     """Ask [a] question - shows a multiple choice question\
  and returns the answer.
     
-    - q_type: "scale" = range of values for a scale / rank, 1 to 100
-    - q_type: "bool" = Yes / No question, Boolean true / false value
-    - q_type: "choose" = select an option from numbered statements
+    - q_type: "scale" = in the range 1 to 100, of values for a scale / rank
+    - q_type: "bool" = a Yes / No answer (Boolean true / false value)
+    - q_type: "choose" = an option chosen from the numbered statements
     (e.g. actions taken)
     - options (list items): the descriptions for "choose" statement options,
     which go after a number, or text for the start and end points of the range
@@ -21,21 +22,29 @@ def ask_question(text, q_type="scale", options=["little", "lots"]):
 
         if q_type == "scale":
             print("(1={0}, 100={1})".format(options[0], options[1]))
-            answer = input()
-            try:
-                answer = int(answer)
-                if answer not in range(1, 100+1):
-                    answer = None
-            except ValueError:
-                answer = None
+            error = "in the range 1 to 100, of values for a scale / rank."
+            end = 100
         elif q_type == "bool":
             #...
             answer = input()
             #...
         elif q_type == "choose":
-            #...
+            for n in range(len(options)):
+                print(" ("+str(n+1)+") "+options[n]+".")
+            error = "an option chosen from the numbered statements."
+            end = len(options)
+
+        if q_type in ["scale", "choose"]:
             answer = input()
-            #...
+            try:
+                answer = int(answer)
+                if answer not in range(1, end+1):
+                    answer = None
+            except ValueError:
+                answer = None
+            if answer == None:
+                print("Your answer is incorrect, it needs to be")
+                print(error)
     return answer
     #pass #...[remove this line after adding the function code here]...
 
@@ -70,25 +79,26 @@ print()
 introversion = ask_question("On an introvert/extrovert scale, where would "+
     "you rank yourself", q_type="scale", options=["introverted",
                                                   "extroverted"])
+# Variable not used, a bit weird.
 
-print("Given the choice, how many people would you meet and have as your friends?\n"+
-      " (1) I would go for lots of people and try all of them.\n"+
-      " (2) I would go for lots of people and have only the best as friends.\n"+
-      " (3) I would go for few people and have a few friends.\n"+
-      " (4) Rather go without meeting people or friends.")
-depth=input()
-if depth == "1":
+depth = ask_question("Given the choice, how many people would you meet and "+
+    "have as your friends", q_type="choose", options=[
+        "I would go for lots of people and try all of them",
+        "I would go for lots of people and have only the best as friends",
+        "I would go for few people and have a few friends",
+        "Rather go without meeting people or friends"])
+if depth == 1:
     depth=33
-elif depth == "2":
+elif depth == 2:
     depth=66
-elif depth == "3":
+elif depth == 3:
     depth=99
-elif depth == "4":
+elif depth == 4:
     depth=0
-    
-print("How good would you say your friends are to you? 100=terrible, 1=Wonderful")
+
 # Inverse scale used to normal expectations of "how good". 1=worst, 100=best
-tolerance=int(input())
+tolerance = ask_question("How good would you say your friends are to you",
+                q_type="scale", options=["wonderful", "terrible"])
 depth=depth+(50-tolerance)/2
 print("Are you a messy person? (Y/N)")
 mess=input()
