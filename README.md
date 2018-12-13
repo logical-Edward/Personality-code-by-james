@@ -1,6 +1,7 @@
 # Personality code by James
-A shared place for the Python code of a personality and relationships  
-program made (the original idea) by a secondary school friend, James G.
+A shared place for the code of a personality and relationships program  
+made (the original idea) by a secondary school friend, James G and  
+with edits from others - for example the repo. owner.
 
 > I am writing an application designed to tell you your personality and the sorts of people that you might like.  
 > If you would like to try it, then let me know and please don't be offended by it because it's still quite new.  
