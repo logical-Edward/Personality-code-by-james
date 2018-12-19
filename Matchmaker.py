@@ -1,5 +1,5 @@
 #==== Python line length to wrap text for easier reading is 79 characters. ====
-# License + info at <https://github.com/user-e/personality-code-by-james/>
+# License + info at <https://github.com/user-e/personality-code-by-james/>.
 
 def ask_question(text, q_type="scale", options=["little", "lots"]):
     """Ask [a] question - shows a multiple choice question\
@@ -25,9 +25,14 @@ def ask_question(text, q_type="scale", options=["little", "lots"]):
             error = "in the range 1 to 100, of values for a scale / rank."
             end = 100
         elif q_type == "bool":
-            #...
+            print("(Yes/No)")
             answer = input()
-            #...
+            if (answer.lower().startswith("y") or
+                    answer.lower().startswith("n")):
+                answer = answer.lower().startswith("y")
+            else:
+                answer = None
+                error = "a Yes / No answer (Boolean true / false value)"
         elif q_type == "choose":
             for n in range(len(options)):
                 print(" ("+str(n+1)+") "+options[n]+".")
@@ -42,11 +47,11 @@ def ask_question(text, q_type="scale", options=["little", "lots"]):
                     answer = None
             except ValueError:
                 answer = None
-            if answer == None:
-                print("Your answer is incorrect, it needs to be")
-                print(error)
+        if answer == None:
+            print("Your answer is incorrect, it needs to be")
+            print(error)
     return answer
-    #pass #...[remove this line after adding the function code here]...
+    #pass #...[remove this line after adding the function code above]...
 
 # All the boolean variables that were here have been moved to key:value pairs
 # in this dictionary and use of them updated to this using find and replace.
@@ -96,28 +101,26 @@ elif depth == 3:
 elif depth == 4:
     depth=0
 
-# Inverse scale used to normal expectations of "how good". 1=worst, 100=best
+# Inverse scale used to what I expected about "how good" (1=worst, 100=best).
 tolerance = ask_question("How good would you say your friends are to you",
                 q_type="scale", options=["wonderful", "terrible"])
 depth=depth+(50-tolerance)/2
-print("Are you a messy person? (Y/N)")
-mess=input()
-if mess == "Y":
+mess = ask_question("Are you a messy person", q_type="bool")
+if mess == True:
     organisation=25
-    print("Do you mind others' who are untidy? (Y/N)")
-    spicy=input()
-    if spicy == "Y":
-        tolerance-10
-    elif spicy == "N":
-        tolerance+10
-elif mess=="N":
+    spicy = ask_question("Do you mind others' who are untidy", q_type="bool")
+    if spicy == True:
+        tolerance -= 10
+    else:
+        tolerance += 10
+else:
     organisation=75
-    print("Do you mind others' messiness/not being organised? (Y/N)")
-    spicy=input()
-    if spicy == "Y":
-        tolerance-10
-    elif spicy == "N":
-        tolerance+10
+    spicy = ask_question("Do you mind others' messiness/not being organised",
+                         q_type="bool")
+    if spicy == True:
+        tolerance -= 10
+    else:
+        tolerance += 10
 
 print("How much do you care about others' affairs? (1=little, 100=lots)")
 you["caringness"]=int(input())
@@ -135,86 +138,85 @@ if response == "1":
 elif response == "2":
     tolerance=tolerance/2
 elif response == "3":
-    you["perception"]+25
+    you["perception"] += 25
 elif response == "4":
     you["caringness"]=you["caringness"]+(100-you["caringness"])/2
 
 print("How well do you get on with your teachers? (1=terribly, 100=brilliantly)")
 respect=int(input())
 tolerance=(tolerance-50)+respect
-print("Do you post your opinions on social media? (Y/N)")
-media=input()
-if media == "Y":
+media = ask_question("Do you post your opinions on social media",
+                     q_type="bool")
+if media == True:
     depth=depth/2
-elif media == "N":
+else:
     depth=depth+(100-depth)/2
-print("Do you swear? (Y/N)")
-swear=input()
-if swear == "Y":
+swear = ask_question("Do you swear", q_type="bool")
+if swear == True:
     respect=respect/2
-elif swear == "N":
+else:
     respect=respect+(100-respect)/2
 
-print("Do you often notice when others are sad or not themselves? (Y/N)")
-insightful=input()
-if insightful == "Y":
+insightful = ask_question("Do you often notice when others are sad"+
+                " or not themselves", q_type="bool")
+if insightful == True:
     you["perception"]=you["perception"]+(100-you["perception"])/2
-    print("Do you wonder why they are like that? (Y/N)")
-    longing=input()
-    if longing == "Y":
+    longing = ask_question("Do you wonder why they are like that",
+                           q_type="bool")
+    if longing == True:
         you["caringness"]=you["caringness"]+(100-you["caringness"])/2
-    elif longing == "N":
+    else:
         you["caringness"]-you["caringness"]/2
-elif insightful == "N":
+else:
     you["perception"]=you["perception"]/2
-    print("Do you want to be able to tell? (Y/N)")
-    longing=input()
-    if longing == "Y":
+    longing = ask_question("Do you want to be able to tell",
+                           q_type="bool")
+    if longing == True:
         you["caringness"]=you["caringness"]+(100-you["caringness"])/2
-    elif longing == "N":
+    else:
         you["caringness"]=you["caringness"]/2
-print("Do you often get into trouble for having not done things? (Y/N)")
-plan=input()
-if plan == "Y":
+plan = ask_question("Do you often get into trouble for "+
+                    "having not done things", q_type="bool")
+if plan == True:
     organisation=organisation/2
-elif plan == "N":
+else:
     orgainisation=organisation+(100-organisation)/2
 
 print("You understand how you feel and why you feel the way you do? (1=not at all, 100=completely)")
 self_understanding=int(input())
-print("You often reflect on things that have happened in the day\n"+
-    "and on your feelings before going to sleep at night? (Y/N)")
-response=input()
-if response == "Y":
+response = ask_question("You often reflect on things that have happened "+
+    "in the day\n and on your feelings before going to sleep at night",
+                        q_type="bool")
+if response == True:
     self_understanding=self_understanding+(100-self_understanding)/2
-elif response == "N":
+else:
     self_understanding=self_understanding/2
-print("Do you talk to others about how you are feeling? (Y/N)")
-response=input()
-if response == "Y":
+response = ask_question("Do you talk to others about how "+
+                        "you are feeling", q_type="bool")
+if response == True:
     you["privacy"]=False
     self_understanding=self_understanding+(100-self_understanding)/2
-elif response == "N":
+else:
     you["privacy"]=True
     self_understanding=self_understanding/2
-print("Do you ever suddenly consider that you could've hurt\n"+
-    "someone's feelings and feel slightly ashamed? (Y/N)")
-you["regret"]=input()
-if you["regret"] == "Y":
+you["regret"] = ask_question("Do you ever suddenly consider that you "+
+    "could've hurt\n someone's feelings and feel slightly ashamed",
+                             q_type="bool")
+if you["regret"] == True:
     you["regret"]=True
     you["perception"]=you["perception"]+(100-you["perception"])/2
     you["caringness"]=you["caringness"]+(100-you["caringness"])/2
-elif you["regret"] == "N":
+else:
     you["regret"]=False
     you["perception"]=you["perception"]/2
     you["caringness"]=you["caringness"]/2
-print("Do you suffer from emotional outbursts? (Y/N)")
-response=input()
-if response == "Y":
+response = ask_question("Do you suffer from emotional outbursts",
+                        q_type="bool")
+if response == True:
     tolerance=tolerance/2
     self_understanding=self_understanding/2
     
-elif response == "N":
+else:
     tolerance=tolerance+(100-tolerance)/2
     self_understanding=self_understanding+(100-self_understanding)/2
 
@@ -226,58 +228,57 @@ print("2.Laugh internally, since your not quite sure how the recipent feels abou
 print("3.You usually don't get the joke till the moment has passed.")
 print("4.You don't really find hurtful jokes funny.")
 response=input()
-if response == "1":
+if response == 1:
     humor=humor+(100-humor)/2
     you["caringness"]=you["caringness"]/2
-elif response == "2":
+elif response == 2:
     humor=humor+(100-humor)/2
     you["caringness"]=you["caringness"]+(100-you["caringness"])/2
-elif response == "3":
+elif response == 3:
     humor=humor/2
-elif response == "4":
+elif response == 4:
     you["caringness"]=you["caringness"]+(100-you["caringness"])/2
 print("I often tell jokes. (Y/N)")
-responce=input()
-if responce == "Y":
+response=input()
+if response == True:
     humor=humor+(100-humor)/2
-elif responce == "N":
+else:
     humor=humor/2
 print("But I don't take part in the slightly hurtful banter\n"+
     "so that I don't hurt peoples' feelings? (Y/N)")
-responce=input()
-if responce == "Y":
+response=input()
+if response == True:
     you["caringness"]=you["caringness"]+(100-you["caringness"])/2
-elif responce == "N":
+else:
     you["caringness"]=you["caringness"]/2
 print("How do you like your humor? (1=dark, 100=light-hearted)")
 darkness=int(input())
-print("Are you sarcastic often? (Y/N)")
-responce=input()
-if responce == "Y":
+response = ask_question("Are you sarcastic often", q_type="bool")
+if response == True:
     darkness=darkness+(darkness-100)/2
     humor=humor+(100-humor)/2
-elif responce == "N":
+else:
     humor=humor/2
     darkness=darkness/2
 
 print("Do you know what it is that you would like to do,\n"+
     "for employment when you leave school? (Y/N)")
-responce=input()
-if responce == "Y":
+response=input()
+if response == True:
     self_understanding=self_understanding+(100-self_understanding)/2
-elif responce == "N":
+else:
     self_understanding=self_understanding/2
-print("Do you know what your best friend wants to do when they leave school? (Y/N)")
-responce=input()
-if responce == "Y":
+response = ask_question("Do you know what your best friend wants "+
+                        "to do when they leave school", q_type="bool")
+if response == True:
     depth=depth+(100-depth)/2
-elif responce == "N":
+else:
     depth=depth/2
-print("Do your friends talk to you about how they feel? (Y/N)")
-responce=input()
-if responce == "Y":
+response = ask_question("Do your friends talk to you about how they feel",
+                q_type="bool")
+if response == True:
     depth=depth+(100-depth)/2
-elif responce == "N":
+else:
     depth=depth/2
 
 
@@ -455,4 +456,4 @@ if you["privacy"]==True:
     print("In addition to or perhaps contrasting your overall personality you are also...")
     print("Quite a secretive person, you keep things from others, some things even from your friends. Not always out of spite simply because you don’t quite trust everyone with your deepest darkest secrets.")
 
-input()
+input("[Press enter key to quit.]")
